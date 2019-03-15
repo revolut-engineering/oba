@@ -1,0 +1,515 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Open Banking API</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell--production&quot;,&quot;shell--sandbox&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell--production">production</a>
+              <a href="#" data-language-name="shell--sandbox">sandbox</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting started">Getting started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#introduction" class="toc-h2 toc-link" data-title="Getting started">Introduction</a>
+                  </li>
+                  <li>
+                    <a href="#usage-and-limits" class="toc-h2 toc-link" data-title="Getting started">Usage and limits</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#the-developer-portal" class="toc-h1 toc-link" data-title="The Developer Portal">The Developer Portal</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#what-is-the-developer-portal" class="toc-h2 toc-link" data-title="The Developer Portal">What is the Developer Portal?</a>
+                  </li>
+                  <li>
+                    <a href="#signin-up" class="toc-h2 toc-link" data-title="The Developer Portal">Signin Up</a>
+                  </li>
+                  <li>
+                    <a href="#how-do-developers-portal-work" class="toc-h2 toc-link" data-title="The Developer Portal">How do developers portal work?</a>
+                  </li>
+                  <li>
+                    <a href="#open-id-configuration-url" class="toc-h2 toc-link" data-title="The Developer Portal">Open Id Configuration URL</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#dynamic-client-registration" class="toc-h1 toc-link" data-title="Dynamic Client Registration">Dynamic Client Registration</a>
+          </li>
+          <li>
+            <a href="#open-banking-security-profile" class="toc-h1 toc-link" data-title="Open Banking Security Profile">Open Banking Security Profile</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authorization-endpoint" class="toc-h2 toc-link" data-title="Open Banking Security Profile">Authorization Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#token-endpoint" class="toc-h2 toc-link" data-title="Open Banking Security Profile">Token Endpoint</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#account-and-transaction-api" class="toc-h1 toc-link" data-title="Account and Transaction API">Account and Transaction API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#account-access-consent" class="toc-h2 toc-link" data-title="Account and Transaction API">Account Access Consent</a>
+                  </li>
+                  <li>
+                    <a href="#get-accounts" class="toc-h2 toc-link" data-title="Account and Transaction API">Get Accounts</a>
+                  </li>
+                  <li>
+                    <a href="#get-account-details" class="toc-h2 toc-link" data-title="Account and Transaction API">Get Account Details</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://developers.revolut.com/signup'>Sign up for Revolut Developers</a></li>
+            <li><br/>Copyright © 2018 Revolut Ltd</li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='getting-started'>Getting started</h1><h2 id='introduction'>Introduction</h2>
+<p>Welcome to the Revolut Open Banking API!<br>
+Here you will find all the information to get started with Open Banking API. We&#39;re building a future beyond banking, we&#39;re excited to have you onboard.</p>
+
+<p>To help you navigate the docs, this page is split into 3 vertical sections:</p>
+
+<ul>
+<li>the navigation menu and search on the left,</li>
+<li>the content in the middle,</li>
+<li>and usage examples on the right.</li>
+</ul>
+<h2 id='usage-and-limits'>Usage and limits</h2>
+<p>You can use the Revolut Open Banking API to:</p>
+
+<ul>
+<li>As Third Party Providers (TPP) create applications for Revolut Open Banking API </li>
+</ul>
+<h1 id='the-developer-portal'>The Developer Portal</h1><h2 id='what-is-the-developer-portal'>What is the Developer Portal?</h2>
+<p>If you are building a great app or a new product/feature based on Revolut Business, then the Developer Portal is for you.<br>
+The Developer Portal allows you to easily create, manage and distribute apps.<br>
+Apps allow you to ask Revolut users to give you permission to use their account on their behalf. Once you will feel confident enough in your integration, the Developer Portal will allow you to submit and publish your apps and integrations. </p>
+<h2 id='signin-up'>Signin Up</h2>
+<ul>
+<li><p>To get an access to Revolut Open Banking API you need to signup to <a href="https://developers.revolut.com">Revolut Developers Portal</a>. After you sign up, please set your Open Banking Organisation Id in <code>Profile</code> section. This will help us to link your applications with your developer account during <code>dynamic application registration</code> process</p></li>
+<li><p>Once you created your account and set your organization id, please get in touch with business-partners@revolut.com and ask for a tet sandbox user credentials. We will provide you with a demo Revolut user account credentials (phone number, password).</p></li>
+</ul>
+<h2 id='how-do-developers-portal-work'>How do developers portal work?</h2>
+<p>Open Banking API ,for our developer portal, is an extension for our existing Open Business APIs project. In the portal you can create Open Business APIs as usual (for more information https://revolutdev.github.io/business-api/ ) and you can view or manage your Open Banking API application. Open Banking Applications can only be created by <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">dynamic client registration</a> as it is described in the offical documentation. </p>
+<h2 id='open-id-configuration-url'>Open Id Configuration URL</h2>
+<ul>
+<li>Production: https://oba.revolut.codes/openid-configuration</li>
+<li>Sandbox: https://sandbox-oba.revolut.codes/openid-configuration</li>
+</ul>
+<h1 id='dynamic-client-registration'>Dynamic Client Registration</h1>
+<p>All API endpoints are implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">documentation</a></p>
+<pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/dynamic-client-registration/register
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/dynamic-client-registration/register
+</code></pre>
+<p>This endpoint will work only if you register to <a href="">developer portal</a> and set open banking organisation id from the portal for your account.</p>
+<h1 id='open-banking-security-profile'>Open Banking Security Profile</h1>
+<p>Open Banking security profile is implemented as it is desribed in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
+<h3 id='authorization-endpoint'>Authorization Endpoint</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/ui/index.html
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/ui/index.html
+</code></pre>
+<p><code>/ui/index.html</code> endpoint is for your application to redirect Revolut customer to authorize consent</p>
+<h3 id='token-endpoint'>Token Endpoint</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba-auth.revolut.com/token
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba-auth.revolut.com/token
+</code></pre>
+<p><code>/token</code> endpoint is beign served from Revolut authorization server. These endpoints requires client certificate authentication for MATLS</p>
+<h1 id='account-and-transaction-api'>Account and Transaction API</h1>
+<p>Open Banking <code>Account and Transaction API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999622968/Account+and+Transaction+API+Specification+-+v3.1.1">documentation</a></p>
+
+<p>The Interfaces already implemented can be seen below. By the time, we will be implementing other endpoints (manadatory endpoints first). We will be updating this documentation.</p>
+<h2 id='account-access-consent'>Account Access Consent</h2><h3 id='cancel-revoke-consent'>Cancel/Revoke Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE curl https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE curl https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre>
+<p>This end point:</p>
+
+<ul>
+<li><p>Rejects consent if a consent in <code>AwaitingAuthorisation</code> state</p></li>
+<li><p>Revokes consent if consent in  <code>Authorised</code> state</p></li>
+</ul>
+<h3 id='get-consent'>Get Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation</p>
+<h3 id='create-consent'>Create Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/account-access-consents 
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/account-access-consents 
+</code></pre>
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"ReadAccountsDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadBalances"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadBeneficiariesDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadDirectDebits"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadProducts"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadStandingOrdersDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadTransactionsCredits"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadTransactionsDebits"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadTransactionsDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadOffers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadPAN"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadParty"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadPartyPSU"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadScheduledPaymentsDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadStatementsDetail"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ExpirationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-02T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"TransactionFromDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-03T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"TransactionToDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-03T00:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a consent to be authorized by revolut user later.</p>
+<h2 id='get-accounts'>Get Accounts</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1086696-D134-472D-B83E-A3F4D201C058"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AccountSubType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CurrentAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bills"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80200110203345"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr Kevin"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00021"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns list of the user&#39;s accounts</p>
+<h2 id='get-account-details'>Get Account Details</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1086696-D134-472D-B83E-A3F4D201C058"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AccountSubType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CurrentAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bills"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80200110203345"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr Kevin"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00021"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves individual account details.</p>
+<h1 id='errors'>Errors</h1>
+<p>The API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- Access to the requested resource or action is forbidden.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The requested resource could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access an endpoint with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t JSON.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re sending too many requests.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell--production">production</a>
+                <a href="#" data-language-name="shell--sandbox">sandbox</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
