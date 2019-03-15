@@ -225,9 +225,6 @@
                   <li>
                     <a href="#introduction" class="toc-h2 toc-link" data-title="Getting started">Introduction</a>
                   </li>
-                  <li>
-                    <a href="#usage-and-limits" class="toc-h2 toc-link" data-title="Getting started">Usage and limits</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -243,7 +240,7 @@
                     <a href="#how-do-developers-portal-work" class="toc-h2 toc-link" data-title="The Developer Portal">How do developers portal work?</a>
                   </li>
                   <li>
-                    <a href="#open-id-configuration-url" class="toc-h2 toc-link" data-title="The Developer Portal">Open Id Configuration URL</a>
+                    <a href="#open-id-configuration-urls" class="toc-h2 toc-link" data-title="The Developer Portal">Open Id Configuration URLs</a>
                   </li>
               </ul>
           </li>
@@ -298,24 +295,18 @@ Here you will find all the information to get started with Open Banking API. We&
 <li>the content in the middle,</li>
 <li>and usage examples on the right.</li>
 </ul>
-<h2 id='usage-and-limits'>Usage and limits</h2>
-<p>You can use the Revolut Open Banking API to:</p>
-
-<ul>
-<li>As Third Party Providers (TPP) create applications for Revolut Open Banking API </li>
-</ul>
 <h1 id='the-developer-portal'>The Developer Portal</h1><h2 id='what-is-the-developer-portal'>What is the Developer Portal?</h2>
-<p>If you are building a great app or a new product/feature based on Revolut Business, then the Developer Portal is for you.<br>
-The Developer Portal allows you to easily create, manage and distribute apps.<br>
+<p>If you are building a great app and would like to integrate it with Revolut, then the Developer Portal is for you.<br>
+The Developer Portal allows you to easily create, manage and distribute apps which are developed for both <a href="https://revolutdev.github.io/business-api/">Revolut Business Open API</a> and <a href="https://www.openbanking.org.uk/">Open Banking API</a>.<br>
 Apps allow you to ask Revolut users to give you permission to use their account on their behalf. Once you will feel confident enough in your integration, the Developer Portal will allow you to submit and publish your apps and integrations. </p>
 <h2 id='signin-up'>Signin Up</h2>
 <ul>
-<li><p>To get an access to Revolut Open Banking API you need to signup to <a href="https://developers.revolut.com">Revolut Developers Portal</a>. After you sign up, please set your Open Banking Organisation Id in <code>Profile</code> section. This will help us to link your applications with your developer account during <code>dynamic application registration</code> process</p></li>
-<li><p>Once you created your account and set your organization id, please get in touch with business-partners@revolut.com and ask for a tet sandbox user credentials. We will provide you with a demo Revolut user account credentials (phone number, password).</p></li>
+<li><p>To get an access to Developer Portal you need to signup to <a href="https://developers.revolut.com">developers.revolut.com</a>. After you sign up, please set your Open Banking organisation id in <code>Profile</code> section. This will help us to link your applications with your developer account during <code>dynamic application registration</code> process of Open Banking API.</p></li>
+<li><p>Once you created your account and set your organization id, you can ask for a test user account for sandbox environment by mailing to <a href="mailto:openbanking-support@revolut.com">openbanking-support@revolut.com</a></p></li>
 </ul>
 <h2 id='how-do-developers-portal-work'>How do developers portal work?</h2>
-<p>Open Banking API ,for our developer portal, is an extension for our existing Open Business APIs project. In the portal you can create Open Business APIs as usual (for more information https://revolutdev.github.io/business-api/ ) and you can view or manage your Open Banking API application. Open Banking Applications can only be created by <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">dynamic client registration</a> as it is described in the offical documentation. </p>
-<h2 id='open-id-configuration-url'>Open Id Configuration URL</h2>
+<p>In the developer portal, you can review and manage your Open Banking Applications. Open Banking Applications can only be created by <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">dynamic client registration</a> as it is described in the offical documentation. You must set your Open Banking API organisation id in <code>Profile</code> section before registering your application with us.</p>
+<h2 id='open-id-configuration-urls'>Open Id Configuration URLs</h2>
 <ul>
 <li>Production: https://oba.revolut.codes/openid-configuration</li>
 <li>Sandbox: https://sandbox-oba.revolut.codes/openid-configuration</li>
@@ -325,7 +316,7 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/dynamic-client-registration/register
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/dynamic-client-registration/register
 </code></pre>
-<p>This endpoint will work only if you register to <a href="">developer portal</a> and set open banking organisation id from the portal for your account.</p>
+<p>This endpoint will work only if you register to <a href="https://developers.revolut.com">developer portal</a> and set open banking organisation id.</p>
 <h1 id='open-banking-security-profile'>Open Banking Security Profile</h1>
 <p>Open Banking security profile is implemented as it is desribed in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
 <h3 id='authorization-endpoint'>Authorization Endpoint</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/ui/index.html
@@ -335,11 +326,11 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <h3 id='token-endpoint'>Token Endpoint</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba-auth.revolut.com/token
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba-auth.revolut.com/token
 </code></pre>
-<p><code>/token</code> endpoint is beign served from Revolut authorization server. These endpoints requires client certificate authentication for MATLS</p>
+<p><code>/token</code> endpoint served via Revolut authorization server. This endpoints requires client certificate authentication for MATLS</p>
 <h1 id='account-and-transaction-api'>Account and Transaction API</h1>
 <p>Open Banking <code>Account and Transaction API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999622968/Account+and+Transaction+API+Specification+-+v3.1.1">documentation</a></p>
 
-<p>The Interfaces already implemented can be seen below. By the time, we will be implementing other endpoints (manadatory endpoints first). We will be updating this documentation.</p>
+<p>The Interfaces already implemented are below. We are keep implementing other endpoints (manadatory endpoints first). We will be updating this documentation as we progress.</p>
 <h2 id='account-access-consent'>Account Access Consent</h2><h3 id='cancel-revoke-consent'>Cancel/Revoke Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE curl https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE curl https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
 </code></pre>
@@ -352,7 +343,7 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <h3 id='get-consent'>Get Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
 </code></pre>
-<p>This endpoint returns consent details as it is described in the official documentation</p>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
 <h3 id='create-consent'>Create Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/account-access-consents 
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/account-access-consents 
 </code></pre>
@@ -385,7 +376,7 @@ Apps allow you to ask Revolut users to give you permission to use their account 
   </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint creates a consent to be authorized by revolut user later.</p>
+<p>This endpoint creates a consent to be authorized by revolut user.</p>
 <h2 id='get-accounts'>Get Accounts</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts
 </code></pre>
@@ -420,7 +411,7 @@ Apps allow you to ask Revolut users to give you permission to use their account 
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns list of the user&#39;s accounts</p>
+<p>This endpoint returns list of the user accounts.</p>
 <h2 id='get-account-details'>Get Account Details</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
 </code></pre>
