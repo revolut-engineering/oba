@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Open Banking API</title>
+    <title>Open Banking API v3.1</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -313,8 +313,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </ul>
 <h1 id='dynamic-client-registration'>Dynamic Client Registration</h1>
 <p>All API endpoints are implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">documentation</a></p>
-<pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/dynamic-client-registration/register
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/dynamic-client-registration/register
+<pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/register
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/register
 </code></pre>
 <p>This endpoint will work only if you register to <a href="https://developers.revolut.com">developer portal</a> and set open banking organisation id.</p>
 <h1 id='open-banking-security-profile'>Open Banking Security Profile</h1>
