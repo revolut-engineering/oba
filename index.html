@@ -270,6 +270,12 @@
                   <li>
                     <a href="#get-account-details" class="toc-h2 toc-link" data-title="Account and Transaction API">Get Account Details</a>
                   </li>
+                  <li>
+                    <a href="#get-account-balances" class="toc-h2 toc-link" data-title="Account and Transaction API">Get Account Balances</a>
+                  </li>
+                  <li>
+                    <a href="#get-account-transactions" class="toc-h2 toc-link" data-title="Account and Transaction API">Get Account Transactions</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -447,6 +453,86 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves individual account details.</p>
+<h2 id='get-account-balances'>Get Account Balances</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Balance"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1086696-D134-472D-B83E-A3F4D201C058"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"CreditLine"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Included"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Available"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150.23"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"CreditDebitIndicator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InterimAvailable"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-02T00:00:00+00:00"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/A1086696-D134-472D-B83E-A3F4D201C058/balances"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves balances for an account.</p>
+<h2 id='get-account-transactions'>Get Account Transactions</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1086696-D134-472D-B83E-A3F4D201C058"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25.00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Balance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"CreditDebitIndicator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InterimBooked"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"BookingDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-02T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ChargeAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"CreditDebitIndicator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProprietaryBankTransactionCode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATM"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Booked"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acd157de-f877-44f1-9190-58051bec3815"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TransactionInformation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the recent transactions for an account.</p>
 <h1 id='errors'>Errors</h1>
 <p>The API uses the following error codes:</p>
 
