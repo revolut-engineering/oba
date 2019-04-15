@@ -598,9 +598,9 @@ Apps allow you to ask Revolut users to give you permission to use their account 
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint is for creating payment consent as it is described in Open Banking API documentation. Domestic Payments are for local payments in UK bank accounts. Revolut supports only GBP as local in UK. That&#39;s why Revolut implemention if this endpoint only supports GBP to UK bank accounts with account information in <code>UK.OBIE.SortCodeAccountNumber</code> format.</p>
+<p>This endpoint is for creating payment consent as it is described in Open Banking API documentation. Domestic Payments are for local payments in UK bank accounts. Revolut supports only GBP as local in UK. That&#39;s why Revolut implemention supports only GBP to UK bank account transfers with creditor account scheme name: <code>UK.OBIE.SortCodeAccountNumber</code>.</p>
 
-<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the header. As it specified in the documentation you must only pass <code>head</code> and <code>signature</code> parts in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
 <h2 id='get-domestic-payment-consent'>Get Domestic Payment Consent</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre>
