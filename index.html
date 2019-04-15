@@ -237,7 +237,7 @@
                     <a href="#signin-up" class="toc-h2 toc-link" data-title="The Developer Portal">Signin Up</a>
                   </li>
                   <li>
-                    <a href="#how-do-developers-portal-work" class="toc-h2 toc-link" data-title="The Developer Portal">How do developers portal work?</a>
+                    <a href="#how-does-the-developer-portal-work" class="toc-h2 toc-link" data-title="The Developer Portal">How does the Developer Portal work?</a>
                   </li>
                   <li>
                     <a href="#open-id-configuration-urls" class="toc-h2 toc-link" data-title="The Developer Portal">Open Id Configuration URLs</a>
@@ -279,6 +279,26 @@
               </ul>
           </li>
           <li>
+            <a href="#payment-initiation-api-specification" class="toc-h1 toc-link" data-title="Payment Initiation API Specification">Payment Initiation API Specification</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-domestic-payment-consent" class="toc-h2 toc-link" data-title="Payment Initiation API Specification">Create Domestic Payment Consent</a>
+                  </li>
+                  <li>
+                    <a href="#get-domestic-payment-consent" class="toc-h2 toc-link" data-title="Payment Initiation API Specification">Get Domestic Payment Consent</a>
+                  </li>
+                  <li>
+                    <a href="#get-funds-confirmation" class="toc-h2 toc-link" data-title="Payment Initiation API Specification">Get Funds Confirmation</a>
+                  </li>
+                  <li>
+                    <a href="#create-domestic-payment" class="toc-h2 toc-link" data-title="Payment Initiation API Specification">Create Domestic Payment</a>
+                  </li>
+                  <li>
+                    <a href="#get-domestic-payment" class="toc-h2 toc-link" data-title="Payment Initiation API Specification">Get Domestic Payment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </div>
@@ -301,6 +321,8 @@ Here you will find all the information to get started with Open Banking API. We&
 <li>the content in the middle,</li>
 <li>and usage examples on the right.</li>
 </ul>
+
+<p>The official Open Banking API v3.1 documentation can be found <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">here</a></p>
 <h1 id='the-developer-portal'>The Developer Portal</h1><h2 id='what-is-the-developer-portal'>What is the Developer Portal?</h2>
 <p>If you are building a great app and would like to integrate it with Revolut, then the Developer Portal is for you.<br>
 The Developer Portal allows you to easily create, manage and distribute apps which are developed for both <a href="https://revolutdev.github.io/business-api/">Revolut Business Open API</a> and <a href="https://www.openbanking.org.uk/">Open Banking API</a>.<br>
@@ -310,8 +332,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <li><p>To get an access to Developer Portal you need to signup to <a href="https://developers.revolut.com">developers.revolut.com</a>. After you sign up, please set your Open Banking organisation id in <code>Profile</code> section. This will help us to link your applications with your developer account during <code>dynamic application registration</code> process of Open Banking API.</p></li>
 <li><p>Once you created your account and set your organization id, you can ask for a test user account for sandbox environment by mailing to <a href="mailto:openbanking-support@revolut.com">openbanking-support@revolut.com</a></p></li>
 </ul>
-<h2 id='how-do-developers-portal-work'>How do developers portal work?</h2>
-<p>In the developer portal, you can review and manage your Open Banking Applications. Open Banking Applications can only be created by <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">dynamic client registration</a> as it is described in the offical documentation. You must set your Open Banking API organisation id in <code>Profile</code> section before registering your application with us.</p>
+<h2 id='how-does-the-developer-portal-work'>How does the Developer Portal work?</h2>
+<p>In the Developer Portal, you can review and manage your Open Banking Applications. Open Banking Applications can only be created by <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">dynamic client registration</a> as it is described in the offical documentation. You must set your Open Banking API organisation id in <code>Profile</code> section before registering your application with us.</p>
 <h2 id='open-id-configuration-urls'>Open Id Configuration URLs</h2>
 <ul>
 <li>Production: https://oba.revolut.com/openid-configuration</li>
@@ -322,7 +344,7 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/register
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/register
 </code></pre>
-<p>This endpoint will work only if you register to <a href="https://developers.revolut.com">developer portal</a> and set open banking organisation id.</p>
+<p>This endpoint will work only if you register to <a href="https://developers.revolut.com">Developer Portal</a> and set open banking organisation id.</p>
 <h1 id='open-banking-security-profile'>Open Banking Security Profile</h1>
 <p>Open Banking security profile is implemented as it is desribed in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
 <h3 id='authorization-endpoint'>Authorization Endpoint</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/ui/index.html
@@ -533,6 +555,211 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves the recent transactions for an account.</p>
+<h1 id='payment-initiation-api-specification'>Payment Initiation API Specification</h1><h2 id='create-domestic-payment-consent'>Create Domestic Payment Consent</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/domestic-payment-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/domestic-payment-consents
+</code></pre>
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11223321325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receiver Co."</span><span class="w">        
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReceiverRef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"7"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is for creating payment consent as it is described in Open Banking API documentation. Domestic Payments are for local payments in UK bank accounts. Revolut supports only GBP as local in UK. That&#39;s why Revolut implemention if this endpoint only supports GBP to UK bank accounts with account information in <code>UK.OBIE.SortCodeAccountNumber</code> format.</p>
+
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the header. As it specified in the documentation you must only pass <code>head</code> and <code>signature</code> parts in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+<h2 id='get-domestic-payment-consent'>Get Domestic Payment Consent</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11223321325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receiver Co."</span><span class="w">        
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReceiverRef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"7"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+<h2 id='get-funds-confirmation'>Get Funds Confirmation</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
+</code></pre>
+<p>This endpoint lets checking funds for the given consent. This endpoint returns successful only if user authorized the related consent. </p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"FundsAvailableResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"FundsAvailableDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:23+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"FundsAvailable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-payment-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9/funds-confirmation"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-domestic-payment'>Create Domestic Payment</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/domestic-payments
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/domestic-payments
+</code></pre>
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11223321325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receiver Co."</span><span class="w">        
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReceiverRef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"7"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
+<h2 id='get-domestic-payment'>Get Domestic Payment</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"DomesticPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a51bafa2-1b9f-466e-ae30-168672f0661c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedSettlementInProcess"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11223321325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receiver Co."</span><span class="w">        
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReceiverRef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"7"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns state of a payment</p>
 <h1 id='errors'>Errors</h1>
 <p>The API uses the following error codes:</p>
 
