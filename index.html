@@ -299,6 +299,20 @@
               </ul>
           </li>
           <li>
+            <a href="#confirmation-of-funds" class="toc-h1 toc-link" data-title="Confirmation of funds">Confirmation of funds</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#funds-confirmation-consent" class="toc-h2 toc-link" data-title="Confirmation of funds">Funds Confirmation Consent</a>
+                  </li>
+                  <li>
+                    <a href="#create-funds-confirmations" class="toc-h2 toc-link" data-title="Confirmation of funds">Create Funds Confirmations</a>
+                  </li>
+                  <li>
+                    <a href="#get-funds-confirmation-2" class="toc-h2 toc-link" data-title="Confirmation of funds">Get Funds Confirmation</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </div>
@@ -760,6 +774,67 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns state of a payment</p>
+<h1 id='confirmation-of-funds'>Confirmation of funds</h1>
+<p>Open Banking <code>Funds Confirmation API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937951380/Confirmation+of+Funds+API+Specification+-+v3.1">documentation</a></p>
+<h2 id='funds-confirmation-consent'>Funds Confirmation Consent</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/funds-confirmation-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/funds-confirmation-consents
+</code></pre>
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000069994595"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows the CBPII to create a new funds-confirmation-consent resource, implemented as described in Open Banking API documentation.</p>
+<h2 id='create-funds-confirmations'>Create Funds Confirmations</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/funds-confirmations
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/funds-confirmations
+</code></pre>
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchase"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.00"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows the CBPII to create a new funds-confirmation resource, and check the funds available flag in the response.</p>
+<h2 id='get-funds-confirmation-2'>Get Funds Confirmation</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/funds-confirmations/<span class="o">{</span>funds-confirmation-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/funds-confirmations/<span class="o">{</span>funds-confirmation-id<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"FundsConfirmationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FundsAvailable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchase01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.00"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/funds-confirmations/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API fetches the already created funds confirmation resource which indicates the availability of the funds</p>
 <h1 id='errors'>Errors</h1>
 <p>The API uses the following error codes:</p>
 
