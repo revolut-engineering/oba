@@ -1,0 +1,17 @@
+{
+    "data": {
+        "actor": {
+            "account": {
+                "nrql": {
+                    "results": [
+						{
+                            "beginTimeSeconds": 1557662683,
+                            "endTimeSeconds": 1557749083,
+                            "percentage": 99.65675057208237
+                        }
+					]
+                }
+            }
+        }
+    }
+}
