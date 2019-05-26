@@ -5,9 +5,9 @@
                 "nrql": {
                     "results": [
                         {
-                            "beginTimeSeconds": 1558701073,
-                            "endTimeSeconds": 1558787473,
-                            "percentage": 98.51441887561899
+                            "beginTimeSeconds": 1558785883,
+                            "endTimeSeconds": 1558872283,
+                            "percentage": 99.93800371977682
                         }
                     ]
                 }

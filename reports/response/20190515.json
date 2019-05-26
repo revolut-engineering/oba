@@ -4,12 +4,13 @@
             "account": {
                 "nrql": {
                     "results": [
+						
                         {
-                            "beginTimeSeconds": 1558701073,
-                            "endTimeSeconds": 1558787473,
-                            "percentage": 98.51441887561899
+                            "beginTimeSeconds": 1557921883,
+                            "endTimeSeconds": 1558008283,
+                            "percentage": 99.31464174454828
                         }
-                    ]
+					]
                 }
             }
         }
