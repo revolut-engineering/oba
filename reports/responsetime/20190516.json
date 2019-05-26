@@ -1,0 +1,18 @@
+{
+    "data": {
+        "actor": {
+            "account": {
+                "nrql": {
+                    "results": [
+                       
+                        {
+                            "beginTimeSeconds": 1558016077,
+                            "endTimeSeconds": 1558102477,
+                            "millis": 19.47677820232986
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
