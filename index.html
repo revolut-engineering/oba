@@ -372,13 +372,15 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </code></pre>
 <p>This endpoint will work only if you register to <a href="https://developers.revolut.com">Developer Portal</a> and set open banking organisation id.</p>
 <h1 id='open-banking-security-profile'>Open Banking Security Profile</h1>
-<p>Open Banking security profile is implemented as it is desribed in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
+<p>Open Banking security profile is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
 <h3 id='authorization-endpoint'>Authorization Endpoint</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/ui/index.html
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/ui/index.html
 </code></pre>
 <p><code>/ui/index.html</code> endpoint is for your application to redirect Revolut customer to authorize consent</p>
-<h3 id='token-endpoint'>Token Endpoint</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba-auth.revolut.com/token
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba-auth.revolut.com/token
+<h3 id='token-endpoint'>Token Endpoint</h3>
+<p>Allows you to get an access token, please refer to <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">open banking specification</a> for more information about the semantics of this API</p>
+<pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba-auth.revolut.com/token
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba-auth.revolut.com/token
 </code></pre>
 <p><code>/token</code> endpoint served via Revolut authorization server. This endpoints requires client certificate authentication for MATLS</p>
 <h1 id='account-and-transaction-api'>Account and Transaction API</h1>
