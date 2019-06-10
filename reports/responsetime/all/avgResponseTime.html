@@ -44,7 +44,7 @@
                 title = shortDate(res.data.actor.account.nrql.results[0].beginTimeSeconds);
 
                 console.log(title + ' ' + res.data.actor.account.nrql.results[0].beginTimeSeconds);
-                percentage = res.data.actor.account.nrql.results[0].percentage;
+                percentage = res.data.actor.account.nrql.results[0].millis;
 
                 tuple = [title, percentage];
                 console.log(tuple);
@@ -65,12 +65,12 @@
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Month');
-        data.addColumn('number', '%');
+        data.addColumn('number', 'Milliseconds');
 
         data.addRows(d);
 
         // Set chart options
-        var options = {'title':'Successful Response Rate  ',
+        var options = {'title':'Avg Response Time',
                        'width':'100%',
                        'height':300};
 
