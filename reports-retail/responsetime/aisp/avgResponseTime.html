@@ -67,7 +67,7 @@
         data.addColumn('string', 'Month');
         data.addColumn('number', 'Milliseconds');
 
-        data.addRows(d);
+        data.addRows(d.reverse());
 
         // Set chart options
         var options = {'title':'AISP Endpoints Avg Response Time',
