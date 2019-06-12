@@ -1,1 +1,1 @@
-{"data":{"actor":{"account":{"nrql":{"results":[{"beginTimeSeconds":1560259846,"endTimeSeconds":1560346246,"percentage":100.0}]}}}}}
+{"data": {"actor": {"account": {"nrql": {"results": [{"percentage": 100, "beginTimeSeconds": 1560251061, "endTimeSeconds": 1560337461}]}}}}}
