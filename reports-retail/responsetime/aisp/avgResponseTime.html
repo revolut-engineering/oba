@@ -70,8 +70,9 @@
         data.addRows(d.reverse());
 
         // Set chart options
-        var options = {'title':'AISP Endpoints Avg Response Time',
+        var options = {'title':'Transactions Endpoints Avg Response Time',
                        'width':'100%',
+		       'vAxis':{ 'baseline':0},
                        'height':300};
 
         // Instantiate and draw our chart, passing in some options.
