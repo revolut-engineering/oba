@@ -741,8 +741,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
-<h2 id='get-domestic-payment'>Get Domestic Payment</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+<h2 id='get-domestic-payment'>Get Domestic Payment</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p>Response:</p>
