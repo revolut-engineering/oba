@@ -578,13 +578,30 @@ Apps allow you to ask Revolut users to give you permission to use their account 
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Booked"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acd157de-f877-44f1-9190-58051bec3815"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"TransactionInformation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="w">
+        </span><span class="s2">"TransactionInformation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SupplementaryData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"UserComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves the recent transactions for an account.</p>
+<h4 id='additional-response-fields'>Additional response fields</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplementaryData.UserComments</td>
+<td>a user provided payment comments</td>
+<td>Text</td>
+</tr>
+</tbody></table>
 <h1 id='payment-initiation-api-specification'>Payment Initiation API Specification</h1><h2 id='create-domestic-payment-consent'>Create Domestic Payment Consent</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/domestic-payment-consents
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/domestic-payment-consents
 </code></pre>
