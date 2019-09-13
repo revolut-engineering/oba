@@ -588,6 +588,10 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves the recent transactions for an account.</p>
+
+<aside class="notice">
+    In order to ensure compliance with PSD2 SCA regulations, we only allow access to the last 90 days’ transactions. However, you will be able to access older transactions within the first 5 minutes of an account access token being authorised. This means that within the first 5 minutes after acquiring the access token, you will be able to request data older than 90 days. After the 5 minute mark, access will be automatically restricted to the last 90 days worth of data.
+</aside>
 <h4 id='additional-response-fields'>Additional response fields</h4>
 <table><thead>
 <tr>
