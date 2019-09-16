@@ -249,6 +249,11 @@
           </li>
           <li>
             <a href="#dynamic-client-registration" class="toc-h1 toc-link" data-title="Dynamic Client Registration">Dynamic Client Registration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#certificate-dn" class="toc-h2 toc-link" data-title="Dynamic Client Registration">Certificate DN</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#open-banking-security-profile" class="toc-h1 toc-link" data-title="Open Banking Security Profile">Open Banking Security Profile</a>
@@ -373,6 +378,9 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/register
 </code></pre>
 <p>This endpoint will work only if you register to <a href="https://developers.revolut.com">Developer Portal</a> and set open banking organisation id.</p>
+<h2 id='certificate-dn'>Certificate DN</h2>
+<p>Please note that Dynamic Registration requires using the RFC2253 DN format in your request. To obtain the DN of your certificate in this format, you may use the following command:
+<code>openssl x509 -in /path/to/your/cert.cer -noout -subject -nameopt RFC2253</code></p>
 <h1 id='open-banking-security-profile'>Open Banking Security Profile</h1>
 <p>Open Banking security profile is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
 <h3 id='authorization-endpoint'>Authorization Endpoint</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/ui/index.html
