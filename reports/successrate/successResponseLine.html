@@ -69,7 +69,7 @@
 
         // Create the data table.
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Month');
+        data.addColumn('string', 'Dates');
         data.addColumn('number', 'open banking');
         data.addColumn('number', 'retail');
         data.addColumn('number', 'business');
@@ -80,7 +80,7 @@
         var options = {'title':'Successful Response Rate (%)',
                        'width':'100%',
 			           'vAxis': { viewWindow: { min: 50 }},
-                       'height':300};
+                       'height':350};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.charts.Line(document.getElementById('chart_div'));
