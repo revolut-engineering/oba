@@ -5,8 +5,6 @@
     <script type="text/javascript">
 
       var OPEN_BANKING = '/oba/reports/responsetime/cbpii';
-      var RETAIL = '/oba/reports-retail/responsetime/cbpii';
-      var BUSINESS = '/oba/reports-business/responsetime/cbpii';
 
       // Load the Visualization API and the corechart package.
       google.charts.load('current', {'packages':['line']});
@@ -42,17 +40,13 @@
 
         Promise.all(dates
             .map((endpoint) => Promise.all([
-              fetch(`${OPEN_BANKING}/${endpoint}.json`).then(res => res.json()),
-              fetch(`${RETAIL}/${endpoint}.json`).then(res => res.json()),
-              fetch(`${BUSINESS}/${endpoint}.json`).then(res => res.json()),
-            ]).then(([openBanking, retail, business]) => {
+              fetch(`${OPEN_BANKING}/${endpoint}.json`).then(res => res.json())
+            ]).then(([openBanking]) => {
                 var title = shortDate(openBanking.data.actor.account.nrql.results[0].beginTimeSeconds);
 
                 var openBanking = openBanking.data.actor.account.nrql.results[0].millis;
-                var retail = retail.data.actor.account.nrql.results[0].millis;
-                var business = business.data.actor.account.nrql.results[0].millis;
 
-                var tuple = [title, openBanking, retail, business];
+                var tuple = [title, openBanking];
                 return tuple;
 
               })
@@ -71,8 +65,6 @@
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Month');
         data.addColumn('number', 'open banking');
-        data.addColumn('number', 'retail');
-        data.addColumn('number', 'business');
 
         data.addRows(d);
 
