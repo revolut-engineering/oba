@@ -657,7 +657,7 @@ Apps allow you to ask Revolut users to give you permission to use their account 
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint is for creating payment consent as it is described in Open Banking API documentation. Domestic Payments are for local payments in UK bank accounts. Revolut supports only GBP as local in UK. That&#39;s why Revolut implemention supports only GBP to UK bank account transfers with creditor account scheme name: <code>UK.OBIE.SortCodeAccountNumber</code>.</p>
+<p>This endpoint is for creating payment consent as described in Open Banking API documentation. Domestic Payments are used for local payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries.</p>
 
 <p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
 
