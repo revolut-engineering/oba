@@ -443,8 +443,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a consent to be authorized by revolut user.</p>
-<h2 id='get-accounts'>Get Accounts</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts
+<h2 id='get-accounts'>Get Accounts</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/accounts
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/accounts
 </code></pre>
 <blockquote>
 <p>Response:</p>
@@ -478,8 +478,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns list of the user accounts.</p>
-<h2 id='get-account-details'>Get Account Details</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
+<h2 id='get-account-details'>Get Account Details</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p>Response:</p>
@@ -513,8 +513,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves individual account details.</p>
-<h2 id='get-account-balances'>Get Account Balances</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
+<h2 id='get-account-balances'>Get Account Balances</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
 </code></pre>
 <blockquote>
 <p>Response:</p>
@@ -551,8 +551,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves balances for an account.</p>
-<h2 id='get-account-transactions'>Get Account Transactions</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
+<h2 id='get-account-transactions'>Get Account Transactions</h2><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
 </code></pre>
 <blockquote>
 <p>Response:</p>
