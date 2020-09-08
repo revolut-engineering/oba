@@ -70,10 +70,15 @@
         data.addRows(d.reverse());
 
         // Set chart options
-        var options = {'title':'Api Average Downtime',
-                       'width':'100%',
-		       'vAxis':{ 'baseline':0},
-                       'height':300};
+        var options = {
+          'title': 'Api Average Downtime',
+          'width': '100%',
+          'vAxis': {
+            'baseline': 0,
+            'maxValue': 100
+          },
+          'height': 300
+        };
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
