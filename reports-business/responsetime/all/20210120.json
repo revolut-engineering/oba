@@ -1,1 +1,1 @@
-{"data":{"actor":{"account":{"nrql":{"results":[{"beginTimeSeconds":1611149476,"endTimeSeconds":1611235876,"millis":55.521723442595956}]}}}}}
+{"errors":[{"message":"Please provide an API key via the `Api-Key` header.\nhttps://docs.newrelic.com/docs/apis/graphql-api/getting-started/introduction-new-relic-graphql-api#authentication\n"}]}
