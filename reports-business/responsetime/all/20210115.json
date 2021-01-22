@@ -1,1 +1,1 @@
-{"data":{"actor":{"account":{"nrql":{"results":[{"beginTimeSeconds":1610717866,"endTimeSeconds":1610804266,"millis":64.56954789211467}]}}}}}
+{"data":{"actor":{"account":{"nrql":null}}},"errors":[{"locations":[{"column":29,"line":1}],"message":"NRQL Query failed","path":["actor","account","nrql"]}]}
