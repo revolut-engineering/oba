@@ -1,1 +1,1 @@
-{"errors":[{"extensions":{"error_code":"ACCOUNT_ACCESS"},"message":"You do not have access to the requested account"}]}
+{"data":{"actor":{"account":{"nrql":{"results":[{"beginTimeSeconds":1611059321,"endTimeSeconds":1611145721,"percentage":99.99855188243217},{"beginTimeSeconds":1611145721,"endTimeSeconds":1611232121,"percentage":99.99806882700553},{"beginTimeSeconds":1611232121,"endTimeSeconds":1611318521,"percentage":99.99594286252146}]}}}}}

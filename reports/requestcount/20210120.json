@@ -1,1 +1,1 @@
-{"data":{"actor":{"account":{"nrql":{"results":[{"beginTimeSeconds":1611153165,"endTimeSeconds":1611239565,"count":1241969}]}}}}}
+{"data":{"actor":{"account":{"nrql":{"results":[{"beginTimeSeconds":1611145711,"endTimeSeconds":1611232111,"count":1242816},{"beginTimeSeconds":1611232111,"endTimeSeconds":1611318511,"count":1232159}]}}}}}
