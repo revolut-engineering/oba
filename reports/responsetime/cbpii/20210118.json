@@ -1,1 +1,1 @@
-{"data":{"actor":{"account":{"nrql":{"results":[{"beginTimeSeconds":1610972937,"endTimeSeconds":1611059337,"millis":null},{"beginTimeSeconds":1611059337,"endTimeSeconds":1611145737,"millis":null},{"beginTimeSeconds":1611145737,"endTimeSeconds":1611232137,"millis":null},{"beginTimeSeconds":1611232137,"endTimeSeconds":1611318537,"millis":null}]}}}}}
+{"data":{"actor":{"account":{"nrql":null}}},"errors":[{"locations":[{"column":29,"line":1}],"message":"Query rejected due to inspected count limit exceeded by this query group.","path":["actor","account","nrql"]}]}
