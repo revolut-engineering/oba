@@ -1,0 +1,1 @@
+{"data":{"actor":{"account":{"nrql":null}}},"errors":[{"extensions":{"errorClass":"TIMEOUT"},"locations":[{"column":29,"line":1}],"message":"NRDB query duration exceeded the set timeout","path":["actor","account","nrql"]}]}
